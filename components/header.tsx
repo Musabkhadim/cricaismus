@@ -102,13 +102,13 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <Link
+            {/* <Link
               href="/submit-blog"
               className="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600"
               onClick={() => setIsMenuOpen(false)}
             >
               Submit Blog
-            </Link>
+            </Link> */}
           </div>
         </div>
       )}
