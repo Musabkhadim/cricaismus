@@ -1,0 +1,136 @@
+"use client"
+
+import type React from "react"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Mail, Phone, MapPin } from "lucide-react"
+
+export default function ContactPageClient() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [error, setError] = useState("")
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setError("")
+
+    try {
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+      setIsSuccess(true)
+      setFormData({ name: "", email: "", subject: "", message: "" })
+    } catch (err) {
+      setError("Failed to send message. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="bg-[#dee2e6] dark:bg-gray-800 p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
+            <Mail className="h-10 w-10 text-blue-600 dark:text-blue-400 mb-4" />
+            <h3 className="text-xl font-medium mb-2">Email</h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              info@dailyurdunews.com<br></br>info@teramob.com
+            </p>
+          </div>
+
+          <div className="bg-[#dee2e6] dark:bg-gray-800 p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
+            <Phone className="h-10 w-10 text-blue-600 dark:text-blue-400 mb-4" />
+            <h3 className="text-xl font-medium mb-2">Phone</h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              +92 333 5212618<br></br>+92 347 0458847<br></br>+92 312 5266834
+            </p>
+          </div>
+
+          <div className="bg-[#dee2e6] dark:bg-gray-800 p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
+            <MapPin className="h-10 w-10 text-blue-600 dark:text-blue-400 mb-4" />
+            <h3 className="text-xl font-medium mb-2">Address</h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              Offic 3/15,<br></br>5th Floor,Silkcenter,<br></br>Rehmanabad,Murree Road,Rawalpindi
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-[#dee2e6] dark:bg-gray-800 p-8 rounded-lg shadow-sm">
+          <h2 className="text-2xl font-semibold mb-6">Send Us a Message</h2>
+
+          {isSuccess ? (
+            <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-md text-green-800 dark:text-green-200">
+              <h3 className="text-xl font-medium mb-2">Message Sent!</h3>
+              <p>Thank you for contacting us. We'll get back to you as soon as possible.</p>
+              <Button className="mt-4" onClick={() => setIsSuccess(false)}>
+                Send Another Message
+              </Button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    Name
+                  </label>
+                  <Input id="name" name="name" value={formData.name} onChange={handleChange} required />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    Email
+                  </label>
+                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} required />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                  Subject
+                </label>
+                <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} required />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              {error && <div className="text-red-600 dark:text-red-400">{error}</div>}
+
+              <Button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
