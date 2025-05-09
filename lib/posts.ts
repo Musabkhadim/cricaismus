@@ -101,7 +101,7 @@ export async function getPostsByCategory(category: string): Promise<Post[]> {
         excerpt: data.content ? data.content.substring(0, 150) + "..." : "",
         content: data.content || "",
         // Use the featuredImage directly from the data
-        featuredImage: data.featuredImage || "/placeholder.svg?height=500&width=900",
+        featuredImage: data.featuredImage || "/musab.png",
         readingTime: Math.ceil(data.content?.length / 1000) || 5,
         author: {
           name: data.name || "",
