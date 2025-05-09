@@ -14,7 +14,7 @@ export default async function Home() {
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold">Latest Articles</h2>
           <a href="/all" className="text-blue-600 dark:text-blue-400 hover:underline">
-            View All
+            
           </a>
         </div>
 

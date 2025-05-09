@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { CalendarIcon, Clock, User, Facebook, Twitter, Linkedin } from "lucide-react"
+import { CalendarIcon, Clock, User, Facebook, Twitter, Linkedin, Share2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { getPostBySlug, getAllPosts } from "@/lib/posts"
@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="flex items-center">
               <img
-                src={post.author.avatar || "/placeholder.svg?height=60&width=60"}
+                src={post.author.avatar || "/Musab.png"}
                 alt={post.author.name}
                 className="w-12 h-12 rounded-full mr-4"
               />
@@ -158,6 +158,18 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                     aria-label="Share on LinkedIn"
                   >
                     <Linkedin className="h-4 w-4" />
+                  </a>
+                </Button>
+                <Button variant="outline" size="icon" asChild>
+                  <a
+                    href={`https://wa.me/?text=${encodeURIComponent(
+                      `${post.title} - https://dailyurdunews.com/blog/${post.slug}`,
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Share on WhatsApp"
+                  >
+                    <Share2 className="h-4 w-4" />
                   </a>
                 </Button>
               </div>

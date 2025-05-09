@@ -12,7 +12,19 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Daily Urdu News Network",
-  description: "Latest news on Cricket, Technology, and Business",
+  description:
+    "Latest news on Cricket, Technology, and Business. Learn about the latest developments in technology, business trends, and cricket matches from around the world.",
+  keywords:
+    "Urdu news, cricket news, technology news, business news, Pakistan news, sports updates, tech trends, business insights, cricket matches, Daily Urdu News Network",
+  generator: "v0.dev",
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon.ico", sizes: "any" }, // optional fallback
+    ],
+    apple: { url: "/icon.png", sizes: "180x180" }, // for iPhone/iPad homescreen
+    shortcut: { url: "/icon.png" }, // general shortcut
+  },
   openGraph: {
     title: "Daily Urdu News Network",
     description: "Latest news on Cricket, Technology, and Business",
@@ -36,7 +48,29 @@ export const metadata: Metadata = {
     creator: "@dailyurdunews",
     images: ["https://dailyurdunews.com/twitter-image.jpg"],
   },
-    generator: 'v0.dev'
+  authors: [{ name: "Daily Urdu News Network Team" }],
+  category: "News",
+  metadataBase: new URL("https://dailyurdunews.com"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/en-US",
+      "ur-PK": "/ur-PK",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "google-site-verification-code", // Replace with your actual verification code
+  },
 }
 
 export default function RootLayout({
