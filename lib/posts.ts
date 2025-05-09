@@ -28,7 +28,7 @@ export async function getAllPosts(): Promise<Post[]> {
         author: {
           name: data.name || "",
           // Use the name field as the author name if no specific author field exists
-          avatar: "/musab.png", // Default avatar
+          avatar: "/Musab.png", // Default avatar
           bio: "8 years of expertise in writing impactful cricket blogs.", // Default bio
         },
       })
@@ -67,7 +67,7 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
         readingTime: Math.ceil(data.content?.length / 1000) || 5,
         author: {
           name: data.name || "",
-          avatar: "/musab.png", // Default avatar
+          avatar: "/Musab.png", // Default avatar
           bio: "8 years of expertise in writing impactful cricket blogs.", // Default bio
         },
       }
@@ -101,11 +101,11 @@ export async function getPostsByCategory(category: string): Promise<Post[]> {
         excerpt: data.content ? data.content.substring(0, 150) + "..." : "",
         content: data.content || "",
         // Use the featuredImage directly from the data
-        featuredImage: data.featuredImage || "/musab.png",
+        featuredImage: data.featuredImage || "/placeholder.svg?height=500&width=900",
         readingTime: Math.ceil(data.content?.length / 1000) || 5,
         author: {
           name: data.name || "",
-          avatar: "/musab.png", // Default avatar
+          avatar: "/Musab.png", // Default avatar
           bio: "8 years of expertise in writing impactful cricket blogs.", // Default bio
         },
       })
