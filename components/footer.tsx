@@ -97,7 +97,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Subscribe to our newsletter to get the latest updates.
+              Get cricket updates in your inbox!.
             </p>
             <form
               onSubmit={(e) => {

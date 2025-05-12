@@ -26,8 +26,8 @@ export default function HeroSection() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
             <div className="text-white">
               <span className="bg-blue-600 text-white text-xs font-medium px-2.5 py-0.5 rounded">Featured</span>
-              <h3 className="text-xl font-bold mt-2">Latest Cricket Match Results</h3>
-              <p className="text-gray-200 text-sm mt-1">Comprehensive coverage of the latest cricket matches</p>
+              <h3 className="text-xl font-bold mt-2">Daily Cricket News & Updates</h3>
+              <p className="text-gray-200 text-sm mt-1">Get the latest cricket news from around the world including breaking stories, team updates, player injuries, match previews, score summaries, ICC rankings, and expert analysis. From PSL to IPL, Asia Cup to World Cup, stay informed about every happening in the cricket world</p>
             </div>
           </div>
         </div>

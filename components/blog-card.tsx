@@ -30,8 +30,7 @@ export default function BlogCard({ post }: BlogCardProps) {
             <time dateTime={post.date}>{formatDate(post.date)}</time>
           </div>
           <div className="flex items-center">
-            <Clock className="mr-1 h-3 w-3" />
-            <span>{post.readingTime} min read</span>
+         
           </div>
         </div>
 

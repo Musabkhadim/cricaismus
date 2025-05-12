@@ -16,7 +16,9 @@ export default async function CricketPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Cricket News</h1>
         <p className="text-gray-600 dark:text-gray-400">
-          Stay updated with the latest cricket news, match updates, player profiles, and analysis.
+     Catch every moment from the world of cricket — from breaking news and match highlights to in-depth player stories, team updates, and expert insights. Everything a true cricket fan needs, all in one place.
+
+
         </p>
       </div>
 

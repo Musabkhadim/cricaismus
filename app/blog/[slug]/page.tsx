@@ -90,8 +90,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             <time dateTime={post.date}>{formatDate(post.date)}</time>
           </div>
           <div className="flex items-center">
-            <Clock className="mr-1 h-4 w-4" />
-            <span>{post.readingTime} min read</span>
+            {/* <Clock className="mr-1 h-4 w-4" /> */}
+            {/* <span>{post.readingTime} min read</span> */}
           </div>
         </div>
 
