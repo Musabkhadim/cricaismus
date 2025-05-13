@@ -48,25 +48,43 @@ export default function AboutPage() {
 
           <h2 className="text-2xl font-semibold mb-4">Our Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-medium mb-2">Accuracy</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                We are committed to factual reporting and thorough fact-checking to ensure the accuracy of our content.
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-medium mb-2">Integrity</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                We maintain editorial independence and adhere to the highest ethical standards in our reporting.
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-medium mb-2">Inclusivity</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                We strive to represent diverse perspectives and voices in our coverage.
-              </p>
-            </div>
-          </div>
+  {/* Accuracy */}
+  <div className="relative rounded-lg shadow-sm">
+    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-blue-800/60 to-black/80 backdrop-blur-sm z-0 rounded-lg"></div>
+    <div className="absolute inset-0 bg-[url('/cricket-bg.jpg')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
+    <div className="relative z-10 p-6 text-white">
+      <h3 className="text-xl font-medium mb-2">Accuracy</h3>
+      <p>
+        We are committed to factual reporting and thorough fact-checking to ensure the accuracy of our content.
+      </p>
+    </div>
+  </div>
+
+  {/* Integrity */}
+  <div className="relative rounded-lg shadow-sm">
+    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-blue-800/60 to-black/80 backdrop-blur-sm z-0 rounded-lg"></div>
+    <div className="absolute inset-0 bg-[url('/cricket-bg.jpg')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
+    <div className="relative z-10 p-6 text-white">
+      <h3 className="text-xl font-medium mb-2">Integrity</h3>
+      <p>
+        We maintain editorial independence and adhere to the highest ethical standards in our reporting.
+      </p>
+    </div>
+  </div>
+
+  {/* Inclusivity */}
+  <div className="relative rounded-lg shadow-sm">
+    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-blue-800/60 to-black/80 backdrop-blur-sm z-0 rounded-lg"></div>
+    <div className="absolute inset-0 bg-[url('/cricket-bg.jpg')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
+    <div className="relative z-10 p-6 text-white">
+      <h3 className="text-xl font-medium mb-2">Inclusivity</h3>
+      <p>
+        We strive to represent diverse perspectives and voices in our coverage.
+      </p>
+    </div>
+  </div>
+</div>
+
 
           <h2 className="text-2xl font-semibold mb-4">Our Team</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">

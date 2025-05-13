@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { CalendarIcon, Clock, User, Facebook, Twitter, Linkedin, Share2 } from "lucide-react"
+import { CalendarIcon, User, Facebook, Twitter, Linkedin, Share2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { getPostBySlug, getAllPosts } from "@/lib/posts"
@@ -13,14 +13,39 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   if (!post) {
     return {
-      title: "Post Not Found | Daily Urdu News Network",
-      description: "The requested post could not be found.",
+      title: "Cricaismus - Latest Cricket News, Player Stats, and Match Updates | Best Cricket Blog for Experts & Fans",
+      description: "Cricaismus offers the latest cricket news, player stats, match highlights, and expert analysis. Stay updated with real-time scores and in-depth cricket blogs. Your go-to source for all things cricket!.",
+      openGraph: {
+        title: "Cricaismus - Latest Cricket News, Player Stats, and Match Updates | Best Cricket Blog for Experts & Fans",
+        description: "Cricaismus offers the latest cricket news, player stats, match highlights, and expert analysis. Stay updated with real-time scores and in-depth cricket blogs. Your go-to source for all things cricket!",
+        type: "article",
+        publishedTime: new Date().toISOString(),
+        authors: ["Admin"],
+        images: [
+          {
+            url: "/placeholder.svg?height=630&width=1200",
+            width: 1200,
+            height: 630,
+            alt: "Post not found",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Cricaismus - Latest Cricket News, Player Stats, and Match Updates | Best Cricket Blog for Experts & Fans",
+        description: "Cricaismus offers the latest cricket news, player stats, match highlights, and expert analysis. Stay updated with real-time scores and in-depth cricket blogs. Your go-to source for all things cricket!.",
+        images: ["/placeholder.svg?height=630&width=1200"],
+      },
     }
   }
 
+  // SEO keywords related to cricket
+  const seoKeywords = `Cricket News, Cricket Updates, Cricket Tips, Cricket World Cup, Cricket Match Reviews, Best Cricket Players, Cricket Highlights, Cricket Score Updates, Cricket Analysis`
+
   return {
-    title: `${post.title} | Daily Urdu News Network`,
+    title: `${post.title} | Cricket News Hub`,
     description: post.excerpt,
+    keywords: seoKeywords,  // Add SEO keywords
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -32,7 +57,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
           url: post.featuredImage || "/placeholder.svg?height=630&width=1200",
           width: 1200,
           height: 630,
-          alt: post.title,
+          alt: `Image for ${post.title}`,
         },
       ],
     },
@@ -41,6 +66,23 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title: post.title,
       description: post.excerpt,
       images: [post.featuredImage || "/placeholder.svg?height=630&width=1200"],
+    },
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      author: {
+        "@type": "Person",
+        name: post.author.name,
+      },
+      datePublished: post.date,
+      image: post.featuredImage || "/placeholder.svg?height=630&width=1200",
+      keywords: seoKeywords,
+      publisher: {
+        "@type": "Organization",
+        name: "cricaismus",
+      },
     },
   }
 }
@@ -89,16 +131,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             <CalendarIcon className="mr-1 h-4 w-4" />
             <time dateTime={post.date}>{formatDate(post.date)}</time>
           </div>
-          <div className="flex items-center">
-            {/* <Clock className="mr-1 h-4 w-4" /> */}
-            {/* <span>{post.readingTime} min read</span> */}
-          </div>
         </div>
 
         <div className="relative aspect-[16/9] mb-8 rounded-lg overflow-hidden">
           <img
             src={post.featuredImage || "/placeholder.svg?height=500&width=900"}
-            alt={post.title}
+            alt={`Image for ${post.title}`}
             className="w-full h-full object-cover"
           />
         </div>
@@ -116,7 +154,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               <div>
                 <h3 className="font-medium">{post.author.name}</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {post.author.bio || "Writer at Daily Urdu News Network"}
+                  {post.author.bio || "Writer at cricaismus team"}
                 </p>
               </div>
             </div>
@@ -127,7 +165,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <Button variant="outline" size="icon" asChild>
                   <a
                     href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                      `https://dailyurdunews.com/blog/${post.slug}`,
+                      `https://cricaismus.com/blog/${post.slug}`,
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -139,7 +177,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <Button variant="outline" size="icon" asChild>
                   <a
                     href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
-                      `https://dailyurdunews.com/blog/${post.slug}`,
+                      `https://cricaismus.com/blog/${post.slug}`,
                     )}&text=${encodeURIComponent(post.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -151,7 +189,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <Button variant="outline" size="icon" asChild>
                   <a
                     href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
-                      `https://dailyurdunews.com/blog/${post.slug}`,
+                      `https://cricaismus.com/blog/${post.slug}`,
                     )}&title=${encodeURIComponent(post.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -163,7 +201,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <Button variant="outline" size="icon" asChild>
                   <a
                     href={`https://wa.me/?text=${encodeURIComponent(
-                      `${post.title} - https://dailyurdunews.com/blog/${post.slug}`,
+                      `${post.title} - https://cricaismus.com/blog/${post.slug}`,
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"

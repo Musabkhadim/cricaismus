@@ -12,20 +12,19 @@ import Script from "next/script"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Cricket News & Match Updates | Daily Urdu News Network",
+  title: "Latest Cricket News & Player Stats | Best Cricket Blog | Cricaismus",
   description:
-    "Latest cricket news, match highlights, team news, ICC rankings & expert analysis – Daily Urdu News Network.",
+    "Stay updated with the latest cricket news, match previews, ICC rankings, player stats, and expert analysis. Explore T20, ODI, and test cricket updates on Cricaismus.",
   keywords:
-    "Best computer institute in Rawalpindi, computer courses in rawalpindi, best php institute in rawalpindi islamabad, best web designing institute in rawalpindi islamabad pakistan, computer short courses, php academy in rawalpindi, web development institute in rawalpindi, computer course fee and duration, short courses fee in rawalpindi, computer short courses contents and duration and fee in rawalpindi islamabad, it courses in pakistan, Graphic designing course in rawalpindi, Programming courses in Rawalpinidi, IT courses in Rawalpindi, short courses in Rawalpindi, Urdu news, cricket news, technology news, business news, Pakistan news, sports updates, tech trends, business insights, cricket matches",
+    "cricket news, player stats, ICC rankings, T20 updates, ODI highlights, PSL news, test match commentary, live scores, Cricaismus blog",
   generator: "Next.js",
-  authors: [{ name: "Daily Urdu News Network Team" }],
-  category: "News",
-  metadataBase: new URL("https://dailyurdunews.com"),
+  authors: [{ name: "Cricaismus Team" }],
+  category: "Cricket Latest News Blog",
+  metadataBase: new URL("https://cricaismus.com"),
   alternates: {
-    canonical: "https://dailyurdunews.com",
+    canonical: "https://cricaismus.com",
     languages: {
       "en-US": "/en-US",
-      "ur-PK": "/ur-PK",
     },
   },
   robots: {
@@ -39,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "google-site-verification-code", // <-- Replace with actual code
+    google: "your-google-site-verification-code", // Replace with your actual code
   },
   icons: {
     icon: [
@@ -50,16 +49,16 @@ export const metadata: Metadata = {
     shortcut: { url: "/icon.png" },
   },
   openGraph: {
-    title: "Daily Urdu News Network",
-    description: "Latest news on Cricket, Technology, and Business",
-    url: "https://dailyurdunews.com",
-    siteName: "Daily Urdu News Network",
+    title: "Latest Cricket News & Player Stats | Best Cricket Blog | Cricaismus",
+    description: "Stay updated with the latest cricket news, match previews, ICC rankings, player stats, and expert analysis on Cricaismus.",
+    url: "https://cricaismus.com",
+    siteName: "Cricaismus",
     images: [
       {
-        url: "https://dailyurdunews.com/og-image.jpg",
+        url: "https://cricaismus.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Daily Urdu News Network",
+        alt: "Cricaismus Logo and Cricket Highlights",
       },
     ],
     locale: "en_US",
@@ -67,10 +66,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Daily Urdu News Network",
-    description: "Latest news on Cricket, Technology, and Business",
-    creator: "@dailyurdunews",
-    images: ["https://dailyurdunews.com/twitter-image.jpg"],
+    title: "Latest Cricket News & Player Stats | Best Cricket Blog | Cricaismus",
+    description: "Stay updated with the latest cricket news, match previews, ICC rankings, player stats, and expert analysis on Cricaismus.",
+    creator: "@cricaismus",
+    images: ["https://cricaismus.com/twitter-image.jpg"],
   },
 }
 
@@ -82,8 +81,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="author" content="Musab Khadim" />
+        <meta name="language" content="en" />
+        <meta httpEquiv="Content-Language" content="en" />
+        <link rel="canonical" href="https://cricaismus.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* JSON-LD Structured Data for SEO */}
+
+        {/* Structured Data for SEO */}
         <Script
           id="ld-json"
           type="application/ld+json"
@@ -91,10 +95,21 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "NewsMediaOrganization",
-              name: "Daily Urdu News Network",
-              url: "https://dailyurdunews.com",
-              logo: "https://dailyurdunews.com/icon.png",
+              "@type": " Cricket Blog",
+              name: "Cricaismus",
+              url: "https://cricaismus.com",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://cricaismus.com/icon.png",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Cricaismus",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://cricaismus.com/icon.png",
+                },
+              },
               sameAs: [
                 "https://facebook.com/yourpage",
                 "https://twitter.com/dailyurdunews",

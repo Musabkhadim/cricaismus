@@ -9,7 +9,7 @@ import { useTheme } from "next-themes"
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "Cricket", path: "/cricket" },
+  { name: "Cricket News Hub", path: "/cricket" },
  
   { name: "About Us", path: "/about" },
   { name: "Contact Us", path: "/contact" },
