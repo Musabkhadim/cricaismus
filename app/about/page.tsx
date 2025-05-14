@@ -22,7 +22,7 @@ export default function AboutPage() {
 
           <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
           <p className="text-white-600 dark:text-gray-400 mb-6">
-          Latest Cricket News,  & Expert Analysis – Only on Daily Urdu News Network.<br></br>
+          Latest Cricket News,  & Expert Analysis – Only on Cricaismus.<br></br>
           Read the latest cricket news, match reports, live scores, player interviews, and expert
            opinions only on Daily Urdu News Network – your trusted source for high-quality, reliable, 
            and engaging cricket content loved by fans worldwide
@@ -31,7 +31,7 @@ export default function AboutPage() {
 
           <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-4">
-          Daily Urdu News Network started as a dedicated platform focused on cricket news and analysis.
+          Cricaismus started as a dedicated platform focused on cricket news and analysis.
            What began as a small blog for passionate fans has now grown into a widely respected source for 
            reliable cricket updates, covering everything from international tournaments to domestic leagues,
             player interviews, and live match commentary.
@@ -41,7 +41,7 @@ export default function AboutPage() {
           accurate, timely, and engaging content that reflects the spirit of the game. Whether it’s the 
           ICC World Cup, T20 leagues, or rising stars in the cricket world, our mission is to keep fans 
           informed with high-quality reporting and expert insights.
-          <br></br>At Daily Urdu News Network, we believe in the power of authentic journalism and strive to be your
+          <br></br>At Cricaismus, we believe in the power of authentic journalism and strive to be your
              go-to destination for everything cricket – news, stats, highlights, and more.
           </p>
           

@@ -42,11 +42,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/image.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon.ico", sizes: "any" },
     ],
-    apple: { url: "/icon.png", sizes: "180x180" },
-    shortcut: { url: "/icon.png" },
+    apple: { url: "/image.png", sizes: "180x180" },
+    shortcut: { url: "/image.png" },
   },
   openGraph: {
     title: "Latest Cricket News & Player Stats | Best Cricket Blog | Cricaismus",

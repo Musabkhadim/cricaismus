@@ -5,8 +5,10 @@ export default function HeroSection() {
   return (
     <section className="py-12 md:py-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">cricaismus</h1>
+        <div><h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-black dark:text-white">
+  Player state with <span className="text-blue-600 dark:text-blue-400">Cricaismus</span>
+</h1>
+
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-6">
           Welcome to cricaismus, your most trusted destination for the latest, authentic, and up-to-date cricket news from Pakistan and around the world
           </p>

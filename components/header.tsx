@@ -40,8 +40,10 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">Daily Urdu News Network</span>
-            </Link>
+  <span className="text-3xl font-extrabold text-blue-600 dark:text-blue-400 glow-text">
+    CRICAISMUS
+  </span>
+</Link>
           </div>
 
           {/* Desktop Navigation */}
