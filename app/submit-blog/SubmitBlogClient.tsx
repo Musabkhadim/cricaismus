@@ -1,14 +1,13 @@
 "use client"
 import type React from "react"
-import { useState, useRef } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { doc, getDoc, setDoc } from "firebase/firestore"
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
-import { db, storage } from "../../firebaseconfig"
-import { AlertCircle, CheckCircle2, X, ImageIcon } from "lucide-react"
+import { db } from "../../firebaseconfig"
+import { AlertCircle, CheckCircle2 } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 export default function SubmitBlogClient() {
@@ -20,14 +19,9 @@ export default function SubmitBlogClient() {
     content: "",
   })
 
-  // Add state for image upload
-  const [image, setImage] = useState<File | null>(null)
-  const [imagePreview, setImagePreview] = useState<string | null>(null)
-  const [imageFileName, setImageFileName] = useState<string>("")
+  // Just keep a simple imageUrl state
   const [imageUrl, setImageUrl] = useState<string>("")
-  const [isDragging, setIsDragging] = useState(false)
-  const [uploadProgress, setUploadProgress] = useState(0)
-  const fileInputRef = useRef<HTMLInputElement>(null)
+  const [previewUrl, setPreviewUrl] = useState<string>("")
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
@@ -50,114 +44,16 @@ export default function SubmitBlogClient() {
       .replace(/\s+/g, "-") // Replace spaces with dashes
   }
 
-  // Handle image selection
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      handleImageFile(file)
-    }
-  }
+  // Handle image URL change and try to preview it
+  const handleImageUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const url = e.target.value
+    setImageUrl(url)
 
-  // Handle image file selection
-  const handleImageFile = (file: File) => {
-    // Check if file is an image
-    if (!file.type.startsWith("image/")) {
-      setError("Please select an image file (PNG, JPG, JPEG, etc.)")
-      return
-    }
-
-    // Check file size (limit to 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      setError("Image size should be less than 5MB")
-      return
-    }
-
-    setImage(file)
-    setImageFileName(file.name)
-
-    // Create preview URL
-    const reader = new FileReader()
-    reader.onload = () => {
-      setImagePreview(reader.result as string)
-    }
-    reader.readAsDataURL(file)
-
-    setError("")
-  }
-
-  // Handle drag events
-  const handleDragEnter = (e: React.DragEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsDragging(true)
-  }
-
-  const handleDragLeave = (e: React.DragEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsDragging(false)
-  }
-
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsDragging(true)
-  }
-
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsDragging(false)
-
-    const file = e.dataTransfer.files?.[0]
-    if (file) {
-      handleImageFile(file)
-    }
-  }
-
-  // Remove selected image
-  const handleRemoveImage = () => {
-    setImage(null)
-    setImagePreview(null)
-    setImageFileName("")
-    setImageUrl("")
-    if (fileInputRef.current) {
-      fileInputRef.current.value = ""
-    }
-  }
-
-  // Upload image to Firebase Storage
-  const uploadImage = async (slug: string): Promise<string> => {
-    if (!image) return ""
-
-    try {
-      // Create a unique filename using the slug and original filename
-      const timestamp = new Date().getTime()
-      const fileExtension = imageFileName.split(".").pop() || "jpg"
-      const uniqueFilename = `${slug}-${timestamp}.${fileExtension}`
-
-      // Create a reference to the file location in Firebase Storage
-      const storageRef = ref(storage, `blog-images/${uniqueFilename}`)
-
-      // Log the upload process
-      console.log("Starting image upload to:", `blog-images/${uniqueFilename}`)
-
-      // Upload the file
-      const snapshot = await uploadBytes(storageRef, image)
-      console.log("Image uploaded successfully")
-
-      // Get the download URL
-      const downloadURL = await getDownloadURL(snapshot.ref)
-      console.log("Download URL obtained:", downloadURL)
-
-      // Save the URL to state
-      setImageUrl(downloadURL)
-
-      return downloadURL
-    } catch (error: any) {
-      console.error("Error uploading image:", error)
-      setError(`Image upload failed: ${error.message || "Unknown error"}`)
-      throw error
+    // If it's a valid URL, set it as preview
+    if (url.startsWith("http")) {
+      setPreviewUrl(url)
+    } else {
+      setPreviewUrl("")
     }
   }
 
@@ -178,21 +74,12 @@ export default function SubmitBlogClient() {
         return
       }
 
-      // Upload image if selected
-      let featuredImage = ""
-      if (image) {
-        console.log("Uploading image for blog:", slug)
-        featuredImage = await uploadImage(slug)
-        console.log("Image uploaded successfully, URL:", featuredImage)
-      }
-
       // Create the blog document with all data including the image URL
       const blogData = {
         ...formData,
-        featuredImage,
+        featuredImage: imageUrl, // Use the URL directly
         createdAt: new Date(),
         updatedAt: new Date(),
-        imageFileName: imageFileName || null,
       }
 
       console.log("Saving blog data to Firestore:", blogData)
@@ -207,10 +94,8 @@ export default function SubmitBlogClient() {
         category: "",
         content: "",
       })
-      setImage(null)
-      setImagePreview(null)
-      setImageFileName("")
       setImageUrl("")
+      setPreviewUrl("")
     } catch (err: any) {
       console.error("Submit Error:", err)
       setError(`Failed to submit blog: ${err.message || "Unknown error"}`)
@@ -270,70 +155,36 @@ export default function SubmitBlogClient() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="cricket">Cricket</SelectItem>
-                    
                   </SelectContent>
                 </Select>
               </div>
 
-            <div>
-              {/* image */}
-  <label className="block text-sm font-medium mb-2">Featured Image</label>
-  <div
-    className={`border-2 border-dashed rounded-lg p-4 text-center ${
-      isDragging
-        ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
-        : "border-gray-300 dark:border-gray-600"
-    }`}
-    onDragEnter={handleDragEnter}
-    onDragLeave={handleDragLeave}
-    onDragOver={handleDragOver}
-    onDrop={handleDrop}
-  >
-    <input
-      type="file"
-      id="image"
-      ref={fileInputRef}
-      className="hidden"
-      accept="image/*"
-      onChange={handleImageChange}
-    />
+              <div>
+                <label htmlFor="imageUrl" className="block text-sm font-medium mb-2">
+                  Featured Image URL
+                </label>
+                <Input
+                  id="imageUrl"
+                  placeholder="https://firebasestorage.googleapis.com/v0/b/example.jpg"
+                  value={imageUrl}
+                  onChange={handleImageUrlChange}
+                />
+                {previewUrl && (
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-500 mb-1">Image Preview:</p>
+                    <img
+                      src={previewUrl || "/placeholder.svg"}
+                      alt="Preview"
+                      className="max-h-40 rounded-md"
+                      onError={() => {
+                        setError("Invalid image URL. Please provide a valid direct link to an image.")
+                        setPreviewUrl("")
+                      }}
+                    />
+                  </div>
+                )}
+              </div>
 
-    {imagePreview ? (
-      <div className="relative">
-        <img
-          src={imagePreview || "/placeholder.svg"}
-          alt="Preview"
-          className="mx-auto max-h-64 rounded-lg w-full object-cover"
-        />
-        {imageFileName && (
-          <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 truncate">{imageFileName}</p>
-        )}
-        <button
-          type="button"
-          onClick={handleRemoveImage}
-          className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full hover:bg-red-600"
-        >
-          <X className="h-4 w-4" />
-        </button>
-      </div>
-    ) : (
-      <div className="py-8">
-        <ImageIcon className="mx-auto h-12 w-12 text-gray-400" />
-        <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-          Drag and drop an image here, or{" "}
-          <button
-            type="button"
-            className="text-blue-500 hover:text-blue-600"
-            onClick={() => fileInputRef.current?.click()}
-          >
-            browse
-          </button>
-        </p>
-        <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">PNG, JPG, JPEG up to 5MB</p>
-      </div>
-    )}
-  </div>
-</div>
               <div>
                 <label htmlFor="content" className="block text-sm font-medium mb-2">
                   Blog Content

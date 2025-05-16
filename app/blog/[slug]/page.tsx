@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 import { CalendarIcon, User, Facebook, Twitter, Linkedin, Share2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { getPostBySlug, getAllPosts } from "@/lib/posts"
+// import { getPostBySlug, getAllPosts } from "@/lib/posts"
 import { formatDate } from "@/lib/utils"
 import BlogGrid from "@/components/blog-grid"
 
