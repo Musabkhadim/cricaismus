@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description:
     "Stay updated with the latest cricket news, match previews, ICC rankings, player stats, and expert analysis. Explore T20, ODI, and test cricket updates on Cricaismus.",
   keywords:
-    "cricket news, player stats, ICC rankings, T20 updates, ODI highlights, PSL news, test match commentary, live scores, Cricaismus blog",
+    "Pakistan cricket news, Latest cricket updates,cricket history,cricket news, player stats, ICC rankings,future series cricket, T20 updates, ODI highlights, PSL news, test match commentary, cricketer player salary, live scores, Cricaismus blog, longest six in cricket history",
   generator: "Next.js",
   authors: [{ name: "Cricaismus Team" }],
   category: "Cricket Latest News Blog",

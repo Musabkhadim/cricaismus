@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Column 1: About */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">CRISAISMUS</h3>
+              <h3 className="text-lg font-semibold mb-4">CRICAISMUS</h3>
               <p className="text-white/80 mb-4">
                 Your go-to destination for all things Cricket.
                 Stay updated with the latest Cricket news, only here.

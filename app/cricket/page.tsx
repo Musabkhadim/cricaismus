@@ -27,9 +27,9 @@ export default async function CricketPage() {
       Cricket News & Records
     </h1>
     <p className="text-xl max-w-3xl mx-auto font-medium text-white/85 drop-shadow">
-       Welcome to <strong>Cricket News Hub</strong> — your one-stop destination for everything cricket. 
-  Catch every moment from the world of cricket — from breaking news and match highlights to in-depth player stories, 
-  team updates, and expert insights.
+       Welcome to <strong>Cricket News Hub</strong> — your go-to place for all things cricket.
+        Catch every second from the cricket world — from breaking news and match highlights to 
+        in-depth player profiles, team news, and expert analysis.   
     </p>
   </div>
 </div>

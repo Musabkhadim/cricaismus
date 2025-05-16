@@ -21,18 +21,18 @@ export default async function Home() {
         <BlogGrid posts={posts} />
       </section>
 
-      <div className="my-16 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
+      {/* <div className="my-16 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
         <div className="text-center mb-4">
           <h3 className="text-xl font-semibold">Advertisement</h3>
         </div>
         <div className="h-[250px] bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
           <p className="text-gray-500 dark:text-gray-400">Ad Space</p>
         </div>
-      </div>
+      </div> */}
 
       <section className="my-16">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold">Cricket</h2>
+          <h2 className="text-3xl font-bold">Cricket News</h2>
           <a href="/cricket" className="text-blue-600 dark:text-blue-400 hover:underline">
             View All
           </a>

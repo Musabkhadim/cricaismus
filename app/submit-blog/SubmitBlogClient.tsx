@@ -275,66 +275,65 @@ export default function SubmitBlogClient() {
                 </Select>
               </div>
 
-              {/* Image Upload Section */}
-              <div>
-                <label className="block text-sm font-medium mb-2">Featured Image</label>
-                <div
-                  className={`border-2 border-dashed rounded-lg p-4 text-center ${
-                    isDragging
-                      ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
-                      : "border-gray-300 dark:border-gray-600"
-                  }`}
-                  onDragEnter={handleDragEnter}
-                  onDragLeave={handleDragLeave}
-                  onDragOver={handleDragOver}
-                  onDrop={handleDrop}
-                >
-                  <input
-                    type="file"
-                    id="image"
-                    ref={fileInputRef}
-                    className="hidden"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                  />
+            <div>
+              {/* image */}
+  <label className="block text-sm font-medium mb-2">Featured Image</label>
+  <div
+    className={`border-2 border-dashed rounded-lg p-4 text-center ${
+      isDragging
+        ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+        : "border-gray-300 dark:border-gray-600"
+    }`}
+    onDragEnter={handleDragEnter}
+    onDragLeave={handleDragLeave}
+    onDragOver={handleDragOver}
+    onDrop={handleDrop}
+  >
+    <input
+      type="file"
+      id="image"
+      ref={fileInputRef}
+      className="hidden"
+      accept="image/*"
+      onChange={handleImageChange}
+    />
 
-                  {imagePreview ? (
-                    <div className="relative">
-                      <img
-                        src={imagePreview || "/placeholder.svg"}
-                        alt="Preview"
-                        className="mx-auto max-h-64 rounded-lg"
-                      />
-                      {imageFileName && (
-                        <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 truncate">{imageFileName}</p>
-                      )}
-                      <button
-                        type="button"
-                        onClick={handleRemoveImage}
-                        className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full hover:bg-red-600"
-                      >
-                        <X className="h-4 w-4" />
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="py-8">
-                      <ImageIcon className="mx-auto h-12 w-12 text-gray-400" />
-                      <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                        Drag and drop an image here, or{" "}
-                        <button
-                          type="button"
-                          className="text-blue-500 hover:text-blue-600"
-                          onClick={() => fileInputRef.current?.click()}
-                        >
-                          browse
-                        </button>
-                      </p>
-                      <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">PNG, JPG, JPEG up to 5MB</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-
+    {imagePreview ? (
+      <div className="relative">
+        <img
+          src={imagePreview || "/placeholder.svg"}
+          alt="Preview"
+          className="mx-auto max-h-64 rounded-lg w-full object-cover"
+        />
+        {imageFileName && (
+          <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 truncate">{imageFileName}</p>
+        )}
+        <button
+          type="button"
+          onClick={handleRemoveImage}
+          className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full hover:bg-red-600"
+        >
+          <X className="h-4 w-4" />
+        </button>
+      </div>
+    ) : (
+      <div className="py-8">
+        <ImageIcon className="mx-auto h-12 w-12 text-gray-400" />
+        <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+          Drag and drop an image here, or{" "}
+          <button
+            type="button"
+            className="text-blue-500 hover:text-blue-600"
+            onClick={() => fileInputRef.current?.click()}
+          >
+            browse
+          </button>
+        </p>
+        <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">PNG, JPG, JPEG up to 5MB</p>
+      </div>
+    )}
+  </div>
+</div>
               <div>
                 <label htmlFor="content" className="block text-sm font-medium mb-2">
                   Blog Content
