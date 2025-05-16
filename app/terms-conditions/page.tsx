@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Daily Urdu News Network",
+  title: "Latest Cricket News & Player Stats | Best Cricket Blog | Cricaismus",
   description:
-    "Read the official terms and conditions for Daily Urdu News Network, your go-to platform for cricket news and updates.",
+    "Stay updated with the latest cricket news, match previews, ICC rankings, player stats, and expert analysis. Explore T20, ODI, and test cricket updates on Cricaismus.",
   keywords: [
     "cricket news",
     "pakistan cricket news today",
