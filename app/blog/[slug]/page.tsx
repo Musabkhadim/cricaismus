@@ -147,7 +147,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="flex items-center">
               <img
-                src={post.author.avatar || "/Musab.png"}
+                src={post.author.avatar || "/image.png"}
                 alt={post.author.name}
                 className="w-12 h-12 rounded-full mr-4"
               />
