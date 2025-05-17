@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 import { CalendarIcon, User, Facebook, Twitter, Linkedin, Share2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-// import { getPostBySlug, getAllPosts } from "@/lib/posts"
+import { getPostBySlug, getAllPosts } from "@/lib/posts"
 import { formatDate } from "@/lib/utils"
 import BlogGrid from "@/components/blog-grid"
 
@@ -14,10 +14,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!post) {
     return {
       title: "Cricaismus - Latest Cricket News, Player Stats, and Match Updates | Best Cricket Blog for Experts & Fans",
-      description: "Cricaismus offers the latest cricket news, player stats, match highlights, and expert analysis. Stay updated with real-time scores and in-depth cricket blogs. Your go-to source for all things cricket!.",
+      description:
+        "Cricaismus offers the latest cricket news, player stats, match highlights, and expert analysis. Stay updated with real-time scores and in-depth cricket blogs. Your go-to source for all things cricket!.",
       openGraph: {
-        title: "Cricaismus - Latest Cricket News, Player Stats, and Match Updates | Best Cricket Blog for Experts & Fans",
-        description: "Cricaismus offers the latest cricket news, player stats, match highlights, and expert analysis. Stay updated with real-time scores and in-depth cricket blogs. Your go-to source for all things cricket!",
+        title:
+          "Cricaismus - Latest Cricket News, Player Stats, and Match Updates | Best Cricket Blog for Experts & Fans",
+        description:
+          "Cricaismus offers the latest cricket news, player stats, match highlights, and expert analysis. Stay updated with real-time scores and in-depth cricket blogs. Your go-to source for all things cricket!",
         type: "article",
         publishedTime: new Date().toISOString(),
         authors: ["Admin"],
@@ -32,8 +35,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       },
       twitter: {
         card: "summary_large_image",
-        title: "Cricaismus - Latest Cricket News, Player Stats, and Match Updates | Best Cricket Blog for Experts & Fans",
-        description: "Cricaismus offers the latest cricket news, player stats, match highlights, and expert analysis. Stay updated with real-time scores and in-depth cricket blogs. Your go-to source for all things cricket!.",
+        title:
+          "Cricaismus - Latest Cricket News, Player Stats, and Match Updates | Best Cricket Blog for Experts & Fans",
+        description:
+          "Cricaismus offers the latest cricket news, player stats, match highlights, and expert analysis. Stay updated with real-time scores and in-depth cricket blogs. Your go-to source for all things cricket!.",
         images: ["/placeholder.svg?height=630&width=1200"],
       },
     }
@@ -45,7 +50,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: `${post.title} | Cricket News Hub`,
     description: post.excerpt,
-    keywords: seoKeywords,  // Add SEO keywords
+    keywords: seoKeywords, // Add SEO keywords
     openGraph: {
       title: post.title,
       description: post.excerpt,
