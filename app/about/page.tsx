@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
-  return (
+  return (  
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-6">About Us</h1>
@@ -51,7 +51,7 @@ export default function AboutPage() {
   {/* Accuracy */}
   <div className="relative rounded-lg shadow-sm">
     <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-blue-800/60 to-black/80 backdrop-blur-sm z-0 rounded-lg"></div>
-    <div className="absolute inset-0 bg-[url('/cricket-bg.jpg')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
+    <div className="absolute inset-0 bg-[url('/')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
     <div className="relative z-10 p-6 text-white">
       <h3 className="text-xl font-medium mb-2">Accuracy</h3>
       <p>
@@ -63,7 +63,7 @@ export default function AboutPage() {
   {/* Integrity */}
   <div className="relative rounded-lg shadow-sm">
     <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-blue-800/60 to-black/80 backdrop-blur-sm z-0 rounded-lg"></div>
-    <div className="absolute inset-0 bg-[url('/cricket-bg.jpg')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
+    <div className="absolute inset-0 bg-[url('/about.jpg')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
     <div className="relative z-10 p-6 text-white">
       <h3 className="text-xl font-medium mb-2">Integrity</h3>
       <p>
@@ -75,7 +75,7 @@ export default function AboutPage() {
   {/* Inclusivity */}
   <div className="relative rounded-lg shadow-sm">
     <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-blue-800/60 to-black/80 backdrop-blur-sm z-0 rounded-lg"></div>
-    <div className="absolute inset-0 bg-[url('/cricket-bg.jpg')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
+    <div className="absolute inset-0 bg-[url('/about.jpg')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
     <div className="relative z-10 p-6 text-white">
       <h3 className="text-xl font-medium mb-2">Inclusivity</h3>
       <p>

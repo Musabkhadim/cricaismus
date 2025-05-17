@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { getPostBySlug, getAllPosts } from "@/lib/posts"
 import { formatDate } from "@/lib/utils"
 import BlogGrid from "@/components/blog-grid"
+import Script from "next/script"
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = await getPostBySlug(params.slug)
@@ -43,7 +44,52 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       },
     }
   }
+  <html>
+    <head> {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-1L0N474NB3"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1L0N474NB3');
+          `}
+        </Script>
 
+        {/* Structured Data for SEO */}
+        <Script
+          id="ld-json"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CricketBlog",
+              name: "Cricaismus",
+              url: "https://cricaismus.com",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://cricaismus.com/icon.png",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Cricaismus",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://cricaismus.com/icon.png",
+                },
+              },
+              sameAs: [
+                "https://facebook.com/yourpage",
+                "https://twitter.com/dailyurdunews",
+              ],
+            }),
+          }}
+        /></head>
+  </html>
   // SEO keywords related to cricket
   const seoKeywords = `Cricket News, Cricket Updates, Cricket Tips, Cricket World Cup, Cricket Match Reviews, Best Cricket Players, Cricket Highlights, Cricket Score Updates, Cricket Analysis`
 

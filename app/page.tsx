@@ -30,7 +30,7 @@ export default async function Home() {
         </div>
       </div> */}
 
-      <section className="my-16">
+      {/* <section className="my-16">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold">Cricket News</h2>
           <a href="/cricket" className="text-blue-600 dark:text-blue-400 hover:underline">
@@ -39,7 +39,7 @@ export default async function Home() {
         </div>
 
         <BlogGrid posts={posts.filter((post) => post.category === "cricket")} />
-      </section>
+      </section> */}
 
 
       <NewsletterCTA />
