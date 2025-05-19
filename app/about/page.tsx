@@ -63,7 +63,7 @@ export default function AboutPage() {
   {/* Integrity */}
   <div className="relative rounded-lg shadow-sm">
     <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-blue-800/60 to-black/80 backdrop-blur-sm z-0 rounded-lg"></div>
-    <div className="absolute inset-0 bg-[url('/about.jpg')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
+    <div className="absolute inset-0 bg-[url('/')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
     <div className="relative z-10 p-6 text-white">
       <h3 className="text-xl font-medium mb-2">Integrity</h3>
       <p>
@@ -75,7 +75,7 @@ export default function AboutPage() {
   {/* Inclusivity */}
   <div className="relative rounded-lg shadow-sm">
     <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-blue-800/60 to-black/80 backdrop-blur-sm z-0 rounded-lg"></div>
-    <div className="absolute inset-0 bg-[url('/about.jpg')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
+    <div className="absolute inset-0 bg-[url('/')] bg-cover bg-center opacity-60 z-0 rounded-lg"></div>
     <div className="relative z-10 p-6 text-white">
       <h3 className="text-xl font-medium mb-2">Inclusivity</h3>
       <p>

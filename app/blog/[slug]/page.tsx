@@ -267,14 +267,14 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         </div>
       </article>
 
-      <div className="my-16 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg max-w-4xl mx-auto">
+      {/* <div className="my-16 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg max-w-4xl mx-auto">
         <div className="text-center mb-4">
           <h3 className="text-xl font-semibold">Advertisement</h3>
         </div>
         <div className="h-[250px] bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
           <p className="text-gray-500 dark:text-gray-400">Ad Space</p>
         </div>
-      </div>
+      </div> */}
 
       {filteredRelatedPosts.length > 0 && (
         <section className="max-w-6xl mx-auto my-16">
