@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Daily Urdu News Network",
-  description: "Learn how Daily Urdu News Network collects, uses, and protects your information. Your privacy matters to us.",
+  title: "Privacy Policy | crisaismus",
+  description: "Learn how cricaismus collects, uses, and protects your information. Your privacy matters to us.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
 
           <h2>Introduction</h2>
           <p>
-            Welcome to Daily Urdu News Network. We are committed to safeguarding your privacy. This Privacy Policy explains how we collect, use, and protect your personal data when you visit our website. We encourage you to read this policy carefully to understand your rights and how we handle your information.
+            Welcome to cricaismus. We are committed to safeguarding your privacy. This Privacy Policy explains how we collect, use, and protect your personal data when you visit our website. We encourage you to read this policy carefully to understand your rights and how we handle your information.
           </p>
 
           <h2>What Information We Collect</h2>
@@ -76,7 +76,7 @@ export default function PrivacyPolicyPage() {
           <h2>Contact Information</h2>
           <p>If you have questions or concerns regarding this privacy policy, you can contact us at:</p>
           <ul>
-            <li>Email: info@teramob.com</li>
+            <li>Email: musabkhadim363@gmail.com</li>
             <li>Phone: +92 347 0458847</li>
             <li>Address: Office 3/15, 5th Floor, Silk Center, Rehmanabad, Murree Road, Rawalpindi, Pakistan</li>
           </ul>

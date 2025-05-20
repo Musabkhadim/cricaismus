@@ -50,7 +50,7 @@ export default function TermsConditionsPage() {
 
           <h2>1. Introduction</h2>
           <p>
-            Welcome to Daily Urdu News Network! By using our website, you agree
+            Welcome to cricket bloge with cricaismus! By using our website, you agree
             to abide by these Terms and Conditions. Our goal is to create a
             safe, informative, and engaging cricket news platform for all
             cricket fans.
@@ -58,7 +58,7 @@ export default function TermsConditionsPage() {
 
           <h2>2. Intellectual Property</h2>
           <p>
-            All content on Daily Urdu News Network, including articles, images,
+            All content on cricaismus, including articles, images,
             and videos, is protected by copyright laws. Please respect our work
             and do not copy, reproduce, or distribute our content without
             permission.
@@ -100,7 +100,7 @@ export default function TermsConditionsPage() {
 
           <h2>8. Limitation of Liability</h2>
           <p>
-            Daily Urdu News Network is not liable for any damages arising from
+           cricaismus is not liable for any damages arising from
             your use of the site, including loss of data, revenue, or
             reputation.
           </p>
@@ -115,7 +115,7 @@ export default function TermsConditionsPage() {
           <h2>10. Contact Us</h2>
           <p>If you have questions or concerns, please contact us at:</p>
           <ul>
-            <li>Email: info@teramob.com</li>
+            <li>Email: musabkhadim363@.com</li>
             <li>Phone: +92 347 0458847</li>
             <li>
               Office: 3/15, 5th Floor, Silk Center, Rehmanabad, Murree Road,
