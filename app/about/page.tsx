@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "About Us | Daily Urdu News Network",
-  description: "Learn more about Daily Urdu News Network, our mission, and our team",
+  title: "About Us |cricaismus",
+  description: "Learn more about cricaismus, our mission, and our team",
 }
 
 export default function AboutPage() {

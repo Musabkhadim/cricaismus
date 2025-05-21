@@ -91,7 +91,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         /></head>
   </html>
   // SEO keywords related to cricket
-  const seoKeywords = `Cricket News, Cricket Updates, Cricket Tips, Cricket World Cup, Cricket Match Reviews, Best Cricket Players, Cricket Highlights, Cricket Score Updates, Cricket Analysis`
+  const seoKeywords = `Cricket News,Cricket Betting Tips ,How to Improve Batting in Cricket,Best Bowling Action in Cricket,Women’s Cricket World Cup Stats , cricket bloge,pakistan score update, Cricket Updates, Cricket Tips, Cricket World Cup, Cricket Match Reviews, Best Cricket Players, Cricket Highlights, Cricket Score Updates, Cricket Analysis`
 
   return {
     title: `${post.title} | Cricket News Hub`,

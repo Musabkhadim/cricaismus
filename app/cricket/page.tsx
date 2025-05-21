@@ -4,14 +4,16 @@ import { getAllPosts } from "@/lib/posts"
 
 export const metadata: Metadata = {
   title: "Cricket News & Record |cricaismus",
-  description: "Latest cricket news, match updates, player profiles, and analysis",
+  description: "Latest cricket news, match updates, player profiles,cricket betting tips, and analysis,",
     keywords: [
     "cricket news",
+    "Best Bowling Action in Cricket",
     "pakistan cricket news today",
     "cricket players analysis",
     "match previews",
     "Live cricket score",
-    "PSL 2024 updates",
+    "PSL 2025 updates",
+    "cricket betting tips",
     "cricket history",
     "cricket blogs",
     "T20 World Cup 2025",

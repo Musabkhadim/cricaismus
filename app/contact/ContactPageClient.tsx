@@ -54,7 +54,7 @@ export default function ContactPageClient() {
               <Mail className="h-10 w-10 text-blue-300 mb-4" />
               <h3 className="text-xl font-medium mb-2">Email</h3>
               <p>
-                awaiszKIR787@gmail.com<br />musabkhadim363@gmail.com
+                awaiszakir787@gmail.com<br />musabkhadim363@gmail.com
               </p>
             </div>
           </div>
